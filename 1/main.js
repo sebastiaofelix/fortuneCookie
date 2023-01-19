@@ -4,7 +4,7 @@ window.onload = function(){
     const screen2 = document.querySelector(".screen2");
     const btn = document.querySelector("#btn");
     const btnA = document.querySelector("#btnA");
-    const phrases = document.querySelector("phrasesOfCookie");
+    const phrases = document.querySelector(".phrasesOfCoockie");
     const phrasesOfCookie = [
         "You will have a great day today!",
         "Good things are coming your way!",
@@ -15,20 +15,15 @@ window.onload = function(){
       ];   
     let xAttempts = 1;
     
-    function handleBtn(event)  {
     
+
+    btn.addEventListener('click', () => {
         document.querySelector(".screen1").classList.add("hide");
         document.querySelector(".screen2").classList.remove("hide");
-    
-    }   
-
-    btn.addEventListener('click', () =>{
         phrases.innerText = phrasesOfCookie[Math.round(Math.random() * 5)]
-    })
+      })
 
-
-
-    btn.addEventListener('click', handleBtn)
+   
     btnA.addEventListener('click', function(){
         screen1.classList.remove('hide')
         screen2.classList.add('hide')        
