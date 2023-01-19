@@ -2,49 +2,41 @@ window.onload = function(){
 
     const screen1 = document.querySelector(".screen1");
     const screen2 = document.querySelector(".screen2");
+    const btn = document.querySelector("#btn");
+    const btnA = document.querySelector("#btnA");
+    const phrases = document.querySelector("phrasesOfCookie");
+    const phrasesOfCookie = [
+        "You will have a great day today!",
+        "Good things are coming your way!",
+        "Expect a positive change in your life soon!",
+        "You are loved and appreciated by those around you.",
+        "A pleasant surprise is in store for you.",
+        "Your hard work will soon be rewarded.",
+      ];   
+    let xAttempts = 1;
     
-    let randomPhraser
+    function handleBtn(event)  {
     
-    randomPhraser = Math.round(Math.random() * 7);
+        document.querySelector(".screen1").classList.add("hide");
+        document.querySelector(".screen2").classList.remove("hide");
     
-    switch (randomPhraser) {
-      case 1:
-        document.querySelector(".card2 p").innerText =
-          "Às vezes, uma simples frase pode mudar tudo.";
-        break;
+    }   
+
+    btn.addEventListener('click', () =>{
+        phrases.innerText = phrasesOfCookie[Math.round(Math.random() * 5)]
+    })
+
+
+
+    btn.addEventListener('click', handleBtn)
+    btnA.addEventListener('click', function(){
+        screen1.classList.remove('hide')
+        screen2.classList.add('hide')        
+    })
+
     
-      case 2:
-        document.querySelector(".phrase p").innerText =
-          "Com sorte você atravessa o mundo, sem sorte você não atravessa a rua.";
-        break;
     
-      case 3:
-        document.querySelector(".phrase p").innerText =
-          "A única coisa segura sobre a sorte é que ela mudará.";
-        break;
-    
-      case 4:
-        document.querySelector(".phrase p").innerText =
-          "A sorte respeita os valentes e oprime os covardes.";
-        break;
-    
-      case 5:
-        document.querySelector(".phrase p").innerText =
-          "Eu acredito na sorte.";
-        break;
-    
-      case 7:
-        document.querySelector(".phrase p").innerText =
-          "Uma pessoa não procura a sorte, é a sorte que procura a pessoa.";
-        break;
-    }
-    
-    function handleBtn(event) {
-        event.preventDefault();
-    
-        screen1.classList.add("hide");
-        screen2.classList.remove("hide");
-    
-        console.log();
-    }
+    console.log(btn)
+
+
 }
